@@ -5,11 +5,6 @@
 
 methodmap Double < Handle
 {
-    propery bool IsNaN
-    {
-        public native get();
-    }
-
 	public native Double();
 
 	public static native Double FromString(char[] value);
@@ -70,4 +65,44 @@ methodmap Double < Handle
 
 	public native void ArcCosineRef();
 	public static native Double ArcCosine(Double angle);
+
+	property bool IsNaN
+    {
+        public native get();
+    }
+}
+
+stock bool operator==(Double left, Double right)
+{
+	return Double.EqualTo(left, right);
+}
+
+stock bool operator!=(Double left, Double right)
+{
+	return !Double.EqualTo(left, right);
+}
+
+stock bool operator>(Double left, Double right)
+{
+	return Double.GreaterThan(left, right);
+}
+
+stock bool operator>=(Double left, Double right)
+{
+	return (Double.GreaterThan(left, right) || Double.EqualTo(left, right));
+}
+
+stock bool operator<(Double left, Double right)
+{
+	return Double.LessThan(left, right);
+}
+
+stock bool operator<=(Double left, Double right)
+{
+	return (Double.LessThan(left, right) || Double.EqualTo(left, right));
+}
+
+stock bool operator!(Double value)
+{
+	return Double.ToInt();
 }

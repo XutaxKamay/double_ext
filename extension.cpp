@@ -49,6 +49,7 @@ const sp_nativeinfo_t g_DoubleNatives[] =
     {"Double.IsNaN.get",        native_DoubleIsNaN},
     {"Double.Double",           native_DoubleConstructor},
     {"Double.FromString",       native_DoubleFromString},
+    {"Double.FromFloat",        native_DoubleFromFloat},
     {"Double.FromInt",          native_DoubleFromInt},
     {"Double.ToString",         native_DoubleToString},
     {"Double.ToInt",            native_DoubleToInt},
@@ -208,7 +209,7 @@ cell_t native_DoubleToString(IPluginContext *pContext, const cell_t *params)
 
     auto maxlen = params[3];
 
-    snprintf(str, static_cast<size_t>(maxlen), "%f", *value);
+    snprintf(str, static_cast<size_t>(maxlen), "%.15f", *value);
 
     return 1;
 }
