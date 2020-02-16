@@ -382,7 +382,7 @@ cell_t native_DoubleModuloRef(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading second double handle (err: %d)", err);
     }
 
-    *refValue = fmod(*refValue, *secondValue);
+    *refValue = std::fmod(*refValue, *secondValue);
 
     return static_cast<cell_t>(refHandle);
 }
