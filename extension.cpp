@@ -34,6 +34,7 @@
 #include "smsdk_ext.h"
 #include <cmath>
 #include <string>
+#include <limits>
 
 HandleType_t g_DoubleType = 0;
 
@@ -163,16 +164,14 @@ cell_t native_DoubleFromString(IPluginContext *pContext, const cell_t *params)
 
 cell_t native_DoubleFromFloat(IPluginContext *pContext, const cell_t *params)
 {
-    // Convert to float
-    auto value = static_cast<double>(*reinterpret_cast<float*>(reinterpret_cast<uintptr_t>(params) + sizeof(cell_t)));
+    auto value = static_cast<double>(sp_ctof(params[1]));
     
     return Double::CreateHandle(pContext, &value);
 }
 
 cell_t native_DoubleFromInt(IPluginContext *pContext, const cell_t *params)
 {
-    // Convert to int
-    auto value = static_cast<double>(*reinterpret_cast<int*>(reinterpret_cast<uintptr_t>(params) + sizeof(cell_t)));
+    auto value = static_cast<double>(params[1]);
 
     return Double::CreateHandle(pContext, &value);
 }
@@ -210,16 +209,7 @@ cell_t native_DoubleToString(IPluginContext *pContext, const cell_t *params)
 
     auto maxlen = static_cast<size_t>(params[3]);
 
-    auto strValue = std::to_string(*value);
-
-    if (strValue.length() <= maxlen)
-    {
-        strcpy(str, strValue.c_str());
-    }
-    else
-    {
-        memcpy(str, strValue.data(), maxlen);
-    }
+    snprintf(str, maxlen, "%.18f", *value);
 
     return static_cast<cell_t>(handle);
 }
@@ -251,10 +241,7 @@ cell_t native_DoubleToFloat(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading double handle (err: %d)", err);
     }
 
-    auto flValue = static_cast<float>(*value);
-    auto pflValue = reinterpret_cast<uintptr_t>(&flValue);
-
-    return *reinterpret_cast<cell_t*>(pflValue);
+    return *reinterpret_cast<cell_t*>(sp_ftoc(static_cast<float>(*value)));
 }
 
 cell_t native_DoubleGreaterThan(IPluginContext *pContext, const cell_t *params)
