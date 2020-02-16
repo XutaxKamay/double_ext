@@ -187,7 +187,7 @@ cell_t native_DoubleIsNaN(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading double handle (err: %d)", err);
     }
 
-    return std::isnan(*value);
+    return std::isnan(*value) || std::isinf(*value);
 }
 
 cell_t native_DoubleToString(IPluginContext *pContext, const cell_t *params)
