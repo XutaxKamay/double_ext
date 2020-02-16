@@ -38,12 +38,12 @@
  */
 
 /* Basic information exposed publicly */
-#define SMEXT_CONF_NAME			"Sample Extension"
-#define SMEXT_CONF_DESCRIPTION	"Sample extension to help developers"
-#define SMEXT_CONF_VERSION		"0.0.0.0"
-#define SMEXT_CONF_AUTHOR		"AlliedModders"
-#define SMEXT_CONF_URL			"http://www.sourcemod.net/"
-#define SMEXT_CONF_LOGTAG		"SAMPLE"
+#define SMEXT_CONF_NAME			"Double Extension"
+#define SMEXT_CONF_DESCRIPTION	"double extension to help developers"
+#define SMEXT_CONF_VERSION		"1.0.0.0"
+#define SMEXT_CONF_AUTHOR		"XutaxKamay"
+#define SMEXT_CONF_URL			"https://github.com/XutaxKamay/double_ext"
+#define SMEXT_CONF_LOGTAG		"DOUBLE"
 #define SMEXT_CONF_LICENSE		"GPL"
 #define SMEXT_CONF_DATESTRING	__DATE__
 
