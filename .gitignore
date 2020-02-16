@@ -1,0 +1,5 @@
+build
+double_ext.*
+.clangd
+compile_commands.json
+
