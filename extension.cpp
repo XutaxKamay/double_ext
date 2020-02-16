@@ -357,9 +357,9 @@ cell_t native_DoubleAbsolute(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading double handle (err: %d)", err);
     }
 
-    auto pDouble = new double(std::abs(*value));
+    auto retValue = std::abs(*value);
 
-    return Double::CreateHandle(pContext, pDouble);
+    return Double::CreateHandle(pContext, &retValue);
 }
 
 cell_t native_DoubleModuloRef(IPluginContext *pContext, const cell_t *params)
@@ -411,9 +411,9 @@ cell_t native_DoubleModulo(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading second double handle (err: %d)", err);
     }
 
-    auto retValue = new double(fmod(*refValue, *secondValue));
+    auto retValue = std::fmod(*refValue, *secondValue);
 
-    return Double::CreateHandle(pContext, retValue);
+    return Double::CreateHandle(pContext, &retValue);
 }
 
 cell_t native_DoubleAddRef(IPluginContext *pContext, const cell_t *params)
@@ -465,9 +465,9 @@ cell_t native_DoubleAdd(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading second double handle (err: %d)", err);
     }
 
-    auto retValue = new double(*refValue + *secondValue);
+    auto retValue = *refValue + *secondValue;
 
-    return Double::CreateHandle(pContext, retValue);
+    return Double::CreateHandle(pContext, &retValue);
 }
 
 cell_t native_DoubleSubstractRef(IPluginContext *pContext, const cell_t *params)
@@ -519,9 +519,9 @@ cell_t native_DoubleSubstract(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading second double handle (err: %d)", err);
     }
 
-    auto retValue = new double(*refValue - *secondValue);
+    auto retValue = (*refValue - *secondValue);
 
-    return Double::CreateHandle(pContext, retValue);
+    return Double::CreateHandle(pContext, &retValue);
 }
 
 cell_t native_DoubleMultiplyRef(IPluginContext *pContext, const cell_t *params)
@@ -573,9 +573,9 @@ cell_t native_DoubleMultiply(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading second double handle (err: %d)", err);
     }
 
-    auto retValue = new double(*refValue * *secondValue);
+    auto retValue = (*refValue * *secondValue);
 
-    return Double::CreateHandle(pContext, retValue);
+    return Double::CreateHandle(pContext, &retValue);
 }
 
 cell_t native_DoubleDivideRef(IPluginContext *pContext, const cell_t *params)
@@ -627,9 +627,9 @@ cell_t native_DoubleDivide(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading second double handle (err: %d)", err);
     }
 
-    auto retValue = new double(*refValue / *secondValue);
+    auto retValue = (*refValue / *secondValue);
 
-    return Double::CreateHandle(pContext, retValue);
+    return Double::CreateHandle(pContext, &retValue);
 }
 
 cell_t native_DoublePowRef(IPluginContext *pContext, const cell_t *params)
@@ -681,9 +681,9 @@ cell_t native_DoublePow(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading second double handle (err: %d)", err);
     }
 
-    auto retValue = new double(std::pow(*refValue, *secondValue));
+    auto retValue = std::pow(*refValue, *secondValue);
 
-    return Double::CreateHandle(pContext, retValue);
+    return Double::CreateHandle(pContext, &retValue);
 }
 
 cell_t native_DoubleSquareRootRef(IPluginContext *pContext, const cell_t *params)
@@ -715,9 +715,9 @@ cell_t native_DoubleSquareRoot(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading ref. double handle (err: %d)", err);
     }
 
-    auto retValue = new double(std::sqrt(*refValue));
+    auto retValue = std::sqrt(*refValue);
 
-    return Double::CreateHandle(pContext, retValue);
+    return Double::CreateHandle(pContext, &retValue);
 }
 
 cell_t native_DoubleAtanRef(IPluginContext *pContext, const cell_t *params)
@@ -749,9 +749,9 @@ cell_t native_DoubleAtan(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading ref. double handle (err: %d)", err);
     }
 
-    auto retValue = new double(std::atan(*refValue));
+    auto retValue = std::atan(*refValue);
 
-    return Double::CreateHandle(pContext, retValue);
+    return Double::CreateHandle(pContext, &retValue);
 }
 
 cell_t native_DoubleAtan2Ref(IPluginContext *pContext, const cell_t *params)
@@ -803,9 +803,9 @@ cell_t native_DoubleAtan2(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading second double handle (err: %d)", err);
     }
 
-    auto retValue = new double(std::atan2(*refValue, *secondValue));
+    auto retValue = std::atan2(*refValue, *secondValue);
 
-    return Double::CreateHandle(pContext, retValue);
+    return Double::CreateHandle(pContext, &retValue);
 }
 
 cell_t native_DoubleSineRef(IPluginContext *pContext, const cell_t *params)
@@ -837,9 +837,9 @@ cell_t native_DoubleSine(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading ref. double handle (err: %d)", err);
     }
 
-    auto retValue = new double(std::sin(*refValue));
+    auto retValue = std::sin(*refValue);
 
-    return Double::CreateHandle(pContext, retValue);
+    return Double::CreateHandle(pContext, &retValue);
 }
 
 cell_t native_DoubleArcSineRef(IPluginContext *pContext, const cell_t *params)
@@ -871,9 +871,9 @@ cell_t native_DoubleArcSine(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading ref. double handle (err: %d)", err);
     }
 
-    auto retValue = new double(std::asin(*refValue));
+    auto retValue = std::asin(*refValue);
 
-    return Double::CreateHandle(pContext, retValue);
+    return Double::CreateHandle(pContext, &retValue);
 }
 
 cell_t native_DoubleTangentRef(IPluginContext *pContext, const cell_t *params)
@@ -905,9 +905,9 @@ cell_t native_DoubleTangent(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading ref. double handle (err: %d)", err);
     }
 
-    auto retValue = new double(std::tan(*refValue));
+    auto retValue = std::tan(*refValue);
 
-    return Double::CreateHandle(pContext, retValue);
+    return Double::CreateHandle(pContext, &retValue);
 }
 
 cell_t native_DoubleCosineRef(IPluginContext *pContext, const cell_t *params)
@@ -939,9 +939,9 @@ cell_t native_DoubleCosine(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading ref. double handle (err: %d)", err);
     }
 
-    auto retValue = new double(std::cos(*refValue));
+    auto retValue = std::cos(*refValue);
 
-    return Double::CreateHandle(pContext, retValue);
+    return Double::CreateHandle(pContext, &retValue);
 }
 
 cell_t native_DoubleArcCosineRef(IPluginContext *pContext, const cell_t *params)
@@ -973,9 +973,9 @@ cell_t native_DoubleArcCosine(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading ref. double handle (err: %d)", err);
     }
 
-    auto retValue = new double(std::acos(*refValue));
+    auto retValue = std::acos(*refValue);
 
-    return Double::CreateHandle(pContext, retValue);
+    return Double::CreateHandle(pContext, &retValue);
 }
 
 SMEXT_LINK(&g_Double);
