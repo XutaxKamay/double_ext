@@ -66,8 +66,8 @@ const sp_nativeinfo_t g_DoubleNatives[] =
     {"Double.Modulo",           native_DoubleModulo},
     {"Double.AddRef",           native_DoubleAddRef},
     {"Double.Add",              native_DoubleAdd},
-    {"Double.SubstractRef",     native_DoubleSubstractRef},
-    {"Double.Substract",        native_DoubleSubstract},
+    {"Double.SubtractRef",     native_DoubleSubtractRef},
+    {"Double.Subtract",        native_DoubleSubtract},
     {"Double.MultiplyRef",      native_DoubleMultiplyRef},
     {"Double.Multiply",         native_DoubleMultiply},
     {"Double.DivideRef",        native_DoubleDivideRef},
@@ -468,7 +468,7 @@ cell_t native_DoubleAdd(IPluginContext *pContext, const cell_t *params)
     return Double::CreateHandle(pContext, &retValue);
 }
 
-cell_t native_DoubleSubstractRef(IPluginContext *pContext, const cell_t *params)
+cell_t native_DoubleSubtractRef(IPluginContext *pContext, const cell_t *params)
 {
     auto refHandle = static_cast<Handle_t>(params[1]);
 
@@ -495,7 +495,7 @@ cell_t native_DoubleSubstractRef(IPluginContext *pContext, const cell_t *params)
     return static_cast<cell_t>(refHandle);
 }
 
-cell_t native_DoubleSubstract(IPluginContext *pContext, const cell_t *params)
+cell_t native_DoubleSubtract(IPluginContext *pContext, const cell_t *params)
 {
     auto refHandle = static_cast<Handle_t>(params[1]);
 
