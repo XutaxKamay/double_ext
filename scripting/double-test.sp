@@ -70,10 +70,11 @@ public void OnPluginStart()
 	// public native void ModuloRef(Double denominator);
 	// public static native Double Modulo(Double number, Double denominator);
 	{
-		Double denom = Double.FromInt(25);
-		Double simpleMod = Double.FromInt(125);
-		Double cloned = simpleMod.Clone();
-		PrintToConsoleAll("mod got: %f %f %f", simpleMod.ToFloat(), simpleMod.ModuloRef(denom).ToFloat(), Double.Modulo(cloned, denom).ToFloat());
+		Double twentyfive = Double.FromInt(25);
+		Double onetwentyfive = Double.FromInt(125);
+		Double onetwentyfive2 = onetwentyfive.Clone();
+		Double onetwentyfive3 = onetwentyfive.Clone();
+		PrintToConsoleAll("mod got: %f %f %f", onetwentyfive.ToFloat(), onetwentyfive2.ModuloRef(twentyfive).ToFloat(), Double.Modulo(onetwentyfive3, twentyfive).ToFloat());
 		PrintToConsoleAll("mod exp: %f %f %f", float(125), float(125 % 25), float(125 % 25));
 	}
 
@@ -85,23 +86,23 @@ public void OnPluginStart()
 		Double thirty = twenty.Clone();
 		thirty.AddRef(ten);
 
-		PrintToConsoleAll("add got: %f %f %f", twenty.ToFloat(), thirty.ToFloat(), Double.Add(five, five).ToFloat());
-		PrintToConsoleAll("add exp: 20.0 30.0 10.0");
+		PrintToConsoleAll("add got: %f %f %f", twenty.ToFloat(), thirty.ToFloat(), Double.Add(twenty, twenty).ToFloat());
+		PrintToConsoleAll("add exp: 20.0 30.0 40.0");
 	}
 
-	// public native void SubstractRef(Double right);
-	// public static native Double Substract(Double left, Double right);
+	// public native void SubtractRef(Double right);
+	// public static native Double Subtract(Double left, Double right);
 	{
+		Double ten = Double.FromInt(10);
 		Double five = Double.FromInt(5);
 
 		Double zero = five.Clone();
-		zero.SubstractRef(five);
+		zero.SubtractRef(five);
 
-		Double negativeFive = Double.Substract(ten, ten);
-		Double thirty = twenty.Clone();
+		Double negativeFive = Double.Subtract(zero, ten);
 
-		PrintToConsoleAll("sub got: %f %f %f", five.ToFloat(), five.SubstractRef(five).ToFloat(), Double.Substract(five, Double.FromInt(25)).ToFloat());
-		PrintToConsoleAll("sub exp: 5.0 30.0 10.0");
+		PrintToConsoleAll("sub got: %f %f %f", five.ToFloat(), zero.ToFloat(), negativeFive.ToFloat());
+		PrintToConsoleAll("sub exp: 5.0 0.0 -10.0");
 	}
 
 	// public native void MultiplyRef(Double right);
@@ -125,34 +126,38 @@ public void OnPluginStart()
 		Double third = Double.Divide(ten, three);
 
 		ten = third.Clone().DivideRef(third);
-
+		Double zero = Double.FromInt(0);
 		Double nan = Double.Divide(ten, zero);
 
-		PrintToConsoleAll("mult got: %f %f %f IsNaN: %b", third.ToFloat(), ten.ToFloat(), nan.ToFloat(), nan.IsNaN);
-		PrintToConsoleAll("mult exp: 0.33333333333 10.0 NaN IsNaN: 1");
+		PrintToConsoleAll("div got: %f %f %f IsNaN: %b", third.ToFloat(), ten.ToFloat(), nan.ToFloat(), nan.IsNaN);
+		PrintToConsoleAll("div exp: 3.33333333333 1.0 NaN IsNaN: 1");
 	}
-	
-	// public native void DivideRef(Double right);
-	// public static native Double Divide(Double left, Double right);
-	{
-		Double five = Double.FromInt(5);
-		PrintToConsoleAll("mult: %f %f %f", five.ToFloat(), five.DivideRef(five).ToFloat(), Double.Divide(five, five).ToFloat());
-	}
-	
+		
 	// public native void PowRef(Double right);
 	// public static native Double Pow(Double left, Double right);
 	{
-		Double five = Double.FromInt(5);
-		PrintToConsoleAll("mult: %f %f %f", five.ToFloat(), five.PowRef(five).ToFloat(), Double.Pow(five, five).ToFloat());
+		Double three = Double.FromInt(3);
+		Double ten = Double.FromInt(10);
+		Double negativeTen = Double.FromInt(-10);
+		Double thousand = Double.Pow(ten, three);
+
+		Double small = ten.Clone().PowRef(negativeTen);
+		PrintToConsoleAll("pow got: %f %f", thousand.ToFloat(), small.ToFloat());
+		PrintToConsoleAll("pow exp: 1000.0 0.0000000001");
 	}
 	
 	// public native void SquareRootRef();
 	// public static native Double SquareRoot(Double right);
 	{
-		Double ten = Double.FromInt(10)
-		Double five = Double.Add(ten, ten);
+		Double ten = Double.FromInt(10);
+		Double negativeOne = Double.FromInt(-1);
+		Double sqrtTen = Double.SquareRoot(ten);
+		Double fourRootTen = sqrtTen.Clone().SquareRootRef();
+		Double nan = Double.SquareRoot(negativeOne);
 
-		PrintToConsoleAll("mult: %f %f %f", five.ToFloat(), five.SquareRootRef().ToFloat(), Double.SquareRoot(five).ToFloat());
+
+		PrintToConsoleAll("sqrt: %f %f nan: %f IsNaN: %b", sqrtTen.ToFloat(), fourRootTen.ToFloat(), nan.ToFloat(), nan.IsNaN);
+		PrintToConsoleAll("sqrt: 3.16227766017 1.77827941004 NaN: 0.0 IsNaN: 1");
 	}
 
 }
