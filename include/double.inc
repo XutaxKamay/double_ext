@@ -19,7 +19,7 @@ methodmap Double < Handle
 	public static native bool LessThan(Double left, Double right);
 	public static native bool EqualTo(Double left, Double right);
 
-	public native Double Clone(Double value);
+	public native Double Clone();
 
 	public native void AbsoluteRef();
 	public static native Double Absolute(Double value);
