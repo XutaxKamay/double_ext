@@ -33,6 +33,7 @@
 #include "IHandleSys.h"
 #include "smsdk_ext.h"
 #include <cmath>
+#include <string>
 
 HandleType_t g_DoubleType = 0;
 
@@ -207,9 +208,18 @@ cell_t native_DoubleToString(IPluginContext *pContext, const cell_t *params)
     char* str;
     pContext->LocalToString(params[2], &str);
 
-    auto maxlen = params[3];
+    auto maxlen = static_cast<size_t>(params[3]);
 
-    snprintf(str, static_cast<size_t>(maxlen), "%.15f", *value);
+    auto strValue = std::to_string(*value);
+
+    if (strValue.length() <= maxlen)
+    {
+        strcpy(str, strValue.c_str());
+    }
+    else
+    {
+        memcpy(str, strValue.data(), maxlen);
+    }
 
     return 1;
 }
