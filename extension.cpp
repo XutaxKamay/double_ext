@@ -147,9 +147,7 @@ HandleError Double::ReadHandle(IPluginContext* const pContext, const Handle_t& h
 
 cell_t native_DoubleConstructor(IPluginContext *pContext, const cell_t *)
 {
-    auto handle = Double::CreateHandle(pContext);
-
-    return static_cast<cell_t>(handle);
+    return Double::CreateHandle(pContext);
 }
 
 cell_t native_DoubleFromString(IPluginContext *pContext, const cell_t *params)
