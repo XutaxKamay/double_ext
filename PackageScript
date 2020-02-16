@@ -8,7 +8,7 @@ builder.SetBuildFolder('package')
 # Add any folders you need to this list
 folder_list = [
   'addons/sourcemod/extensions',
-  #'addons/sourcemod/scripting/include',
+  'addons/sourcemod/scripting/include',
   #'addons/sourcemod/gamedata',
   #'addons/sourcemod/configs',
 ]
@@ -32,6 +32,10 @@ def CopyFiles(src, dest, files):
 #CopyFiles('include', 'addons/sourcemod/scripting/include',
 #  [ 'sample.inc', ]
 #)
+
+CopyFiles('include', 'addons/sourcemod/scripting/include',
+  [ 'double.inc', ]
+)
 
 # GameData files
 #CopyFiles('gamedata', 'addons/sourcemod/gamedata',
