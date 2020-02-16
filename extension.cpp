@@ -221,7 +221,7 @@ cell_t native_DoubleToString(IPluginContext *pContext, const cell_t *params)
         memcpy(str, strValue.data(), maxlen);
     }
 
-    return 1;
+    return static_cast<cell_t>(handle);
 }
 
 cell_t native_DoubleToInt(IPluginContext *pContext, const cell_t *params)
@@ -355,7 +355,7 @@ cell_t native_DoubleAbsoluteRef(IPluginContext *pContext, const cell_t *params)
 
     *value = std::abs(*value);
 
-    return 1;
+    return static_cast<cell_t>(handle);
 }
 
 cell_t native_DoubleAbsolute(IPluginContext *pContext, const cell_t *params)
@@ -399,7 +399,7 @@ cell_t native_DoubleModuloRef(IPluginContext *pContext, const cell_t *params)
 
     *refValue = fmod(*refValue, *secondValue);
 
-    return 1;
+    return static_cast<cell_t>(refHandle);
 }
 
 cell_t native_DoubleModulo(IPluginContext *pContext, const cell_t *params)
@@ -453,7 +453,7 @@ cell_t native_DoubleAddRef(IPluginContext *pContext, const cell_t *params)
 
     *refValue = *refValue + *secondValue;
 
-    return 1;
+    return static_cast<cell_t>(refHandle);
 }
 
 cell_t native_DoubleAdd(IPluginContext *pContext, const cell_t *params)
@@ -507,7 +507,7 @@ cell_t native_DoubleSubstractRef(IPluginContext *pContext, const cell_t *params)
 
     *refValue = *refValue - *secondValue;
 
-    return 1;
+    return static_cast<cell_t>(refHandle);
 }
 
 cell_t native_DoubleSubstract(IPluginContext *pContext, const cell_t *params)
@@ -561,7 +561,7 @@ cell_t native_DoubleMultiplyRef(IPluginContext *pContext, const cell_t *params)
 
     *refValue = *refValue **secondValue;
 
-    return 1;
+    return static_cast<cell_t>(refHandle);
 }
 
 cell_t native_DoubleMultiply(IPluginContext *pContext, const cell_t *params)
@@ -615,7 +615,7 @@ cell_t native_DoubleDivideRef(IPluginContext *pContext, const cell_t *params)
 
     *refValue = *refValue / *secondValue;
 
-    return 1;
+    return static_cast<cell_t>(refHandle);
 }
 
 cell_t native_DoubleDivide(IPluginContext *pContext, const cell_t *params)
@@ -669,7 +669,7 @@ cell_t native_DoublePowRef(IPluginContext *pContext, const cell_t *params)
 
     *refValue = std::pow(*refValue, *secondValue);
 
-    return 1;
+    return static_cast<cell_t>(refHandle);
 }
 
 cell_t native_DoublePow(IPluginContext *pContext, const cell_t *params)
@@ -713,7 +713,7 @@ cell_t native_DoubleSquareRootRef(IPluginContext *pContext, const cell_t *params
 
     *refValue = std::sqrt(*refValue);
 
-    return 1;
+    return static_cast<cell_t>(refHandle);
 }
 
 cell_t native_DoubleSquareRoot(IPluginContext *pContext, const cell_t *params)
@@ -747,7 +747,7 @@ cell_t native_DoubleAtanRef(IPluginContext *pContext, const cell_t *params)
 
     *refValue = std::atan(*refValue);
 
-    return 1;
+    return static_cast<cell_t>(refHandle);
 }
 
 cell_t native_DoubleAtan(IPluginContext *pContext, const cell_t *params)
@@ -791,7 +791,7 @@ cell_t native_DoubleAtan2Ref(IPluginContext *pContext, const cell_t *params)
 
     *refValue = std::atan2(*refValue, *secondValue);
 
-    return 1;
+    return static_cast<cell_t>(refHandle);
 }
 
 cell_t native_DoubleAtan2(IPluginContext *pContext, const cell_t *params)
@@ -835,7 +835,7 @@ cell_t native_DoubleSineRef(IPluginContext *pContext, const cell_t *params)
 
     *refValue = std::sin(*refValue);
 
-    return 1;
+    return static_cast<cell_t>(refHandle);
 }
 
 cell_t native_DoubleSine(IPluginContext *pContext, const cell_t *params)
@@ -869,7 +869,7 @@ cell_t native_DoubleArcSineRef(IPluginContext *pContext, const cell_t *params)
 
     *refValue = std::asin(*refValue);
 
-    return 1;
+    return static_cast<cell_t>(refHandle);
 }
 
 cell_t native_DoubleArcSine(IPluginContext *pContext, const cell_t *params)
@@ -903,7 +903,7 @@ cell_t native_DoubleTangentRef(IPluginContext *pContext, const cell_t *params)
 
     *refValue = std::tan(*refValue);
 
-    return 1;
+    return static_cast<cell_t>(refHandle);
 }
 
 cell_t native_DoubleTangent(IPluginContext *pContext, const cell_t *params)
@@ -937,7 +937,7 @@ cell_t native_DoubleCosineRef(IPluginContext *pContext, const cell_t *params)
 
     *refValue = std::cos(*refValue);
 
-    return 1;
+    return static_cast<cell_t>(refHandle);
 }
 
 cell_t native_DoubleCosine(IPluginContext *pContext, const cell_t *params)
@@ -971,7 +971,7 @@ cell_t native_DoubleArcCosineRef(IPluginContext *pContext, const cell_t *params)
 
     *refValue = std::acos(*refValue);
 
-    return 1;
+    return static_cast<cell_t>(refHandle);
 }
 
 cell_t native_DoubleArcCosine(IPluginContext *pContext, const cell_t *params)

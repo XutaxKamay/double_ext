@@ -21,49 +21,49 @@ methodmap Double < Handle
 
 	public native Double Clone();
 
-	public native void AbsoluteRef();
+	public native Double AbsoluteRef();
 	public static native Double Absolute(Double value);
 
-	public native void ModuloRef(Double denominator);
+	public native Double ModuloRef(Double denominator);
 	public static native Double Modulo(Double number, Double denominator);
 
-	public native void AddRef(Double right);
+	public native Double AddRef(Double right);
 	public static native Double Add(Double left, Double right);
 
-	public native void SubstractRef(Double right);
+	public native Double SubstractRef(Double right);
 	public static native Double Substract(Double left, Double right);
 	
-	public native void MultiplyRef(Double right);
+	public native Double MultiplyRef(Double right);
 	public static native Double Multiply(Double left, Double right);
 
-	public native void DivideRef(Double right);
+	public native Double DivideRef(Double right);
 	public static native Double Divide(Double left, Double right);
 
-	public native void PowRef(Double right);
+	public native Double PowRef(Double right);
 	public static native Double Pow(Double left, Double right);
 
-	public native void SquareRootRef();
+	public native Double SquareRootRef();
 	public static native Double SquareRoot(Double right);
 
-	public native void AtanRef();
+	public native Double AtanRef();
 	public static native Double Atan(Double right);
     
-	public native void Atan2Ref(Double right);
+	public native Double Atan2Ref(Double right);
 	public static native Double Atan2(Double left, Double right);
 
-	public native void SineRef();
+	public native Double SineRef();
 	public static native Double Sine(Double angle);
 
-	public native void ArcSineRef();
+	public native Double ArcSineRef();
 	public static native Double ArcSine(Double angle);
 
-	public native void TangentRef();
+	public native Double TangentRef();
 	public static native Double Tangent(Double angle);
 
-	public native void CosineRef();
+	public native Double CosineRef();
 	public static native Double Cosine(Double angle);
 
-	public native void ArcCosineRef();
+	public native Double ArcCosineRef();
 	public static native Double ArcCosine(Double angle);
 
 	property bool IsNaN
