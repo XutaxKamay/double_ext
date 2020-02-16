@@ -162,7 +162,7 @@ cell_t native_DoubleFromString(IPluginContext *pContext, const cell_t *params)
 cell_t native_DoubleFromFloat(IPluginContext *pContext, const cell_t *params)
 {
     // Convert to float
-    auto value = static_cast<double>(*reinterpret_cast<float*>(reinterpret_cast<uintptr_t>(params) + sizeof(cell_t) * 2));
+    auto value = static_cast<double>(*reinterpret_cast<float*>(reinterpret_cast<uintptr_t>(params) + sizeof(cell_t)));
     
     return Double::CreateHandle(pContext, &value);
 }
@@ -170,7 +170,7 @@ cell_t native_DoubleFromFloat(IPluginContext *pContext, const cell_t *params)
 cell_t native_DoubleFromInt(IPluginContext *pContext, const cell_t *params)
 {
     // Convert to int
-    auto value = static_cast<double>(*reinterpret_cast<int*>(reinterpret_cast<uintptr_t>(params) + sizeof(cell_t) * 2));
+    auto value = static_cast<double>(*reinterpret_cast<int*>(reinterpret_cast<uintptr_t>(params) + sizeof(cell_t)));
 
     return Double::CreateHandle(pContext, &value);
 }
