@@ -241,7 +241,7 @@ cell_t native_DoubleToFloat(IPluginContext *pContext, const cell_t *params)
         return pContext->ThrowNativeError("Error with reading double handle (err: %d)", err);
     }
 
-    return *reinterpret_cast<cell_t*>(sp_ftoc(static_cast<float>(*value)));
+    return sp_ftoc(static_cast<float>(*value));
 }
 
 cell_t native_DoubleGreaterThan(IPluginContext *pContext, const cell_t *params)
