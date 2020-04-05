@@ -124,6 +124,8 @@ public:
 public:
     static cell_t CreateHandle(IPluginContext* const pContext, pdouble_t value = nullptr);
     static HandleError ReadHandle(IPluginContext* const pContext, const Handle_t& handle, pdouble_t* value);
+	static double ReadArray(IPluginContext *const pContext, const cell_t param);
+	static void ToArray(IPluginContext *const pContext, const cell_t param, double value);
 }extern g_Double;
 
 /**
@@ -172,6 +174,32 @@ cell_t native_DoubleCosineRef(IPluginContext *pContext, const cell_t *params);
 cell_t native_DoubleCosine(IPluginContext *pContext, const cell_t *params);
 cell_t native_DoubleArcCosineRef(IPluginContext *pContext, const cell_t *params);
 cell_t native_DoubleArcCosine(IPluginContext *pContext, const cell_t *params);
+
+cell_t native_Double_IsNaN(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_FromString(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_FromFloat(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_FromInt(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_ToString(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_ToInt(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_ToFloat(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_GreaterThan(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_LessThan(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_EqualTo(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_Absolute(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_Modulo(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_Add(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_Subtract(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_Multiply(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_Divide(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_Pow(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_SquareRoot(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_Atan(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_Atan2(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_Sine(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_ArcSine(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_Tangent(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_Cosine(IPluginContext *pContext, const cell_t *params);
+cell_t native_Double_ArcCosine(IPluginContext *pContext, const cell_t *params);
 
 extern HandleType_t g_DoubleType;
 

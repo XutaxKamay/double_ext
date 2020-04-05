@@ -11,7 +11,7 @@ methodmap Double < Handle
 	public static native Double FromInt(int value);
 	public static native Double FromFloat(float value);
 
-	public native void ToString(char[] buffer, int maxlen);
+	public native void ToString(char[] buffer, int maxlen, int precision = 18);
 	public native int ToInt();
 	public native float ToFloat();
 
@@ -106,3 +106,33 @@ stock bool operator!(Double value)
 {
 	return Double.ToInt();
 }
+
+native void Double_FromString(char[] value, any output[2]);
+native void Double_FromInt(int value, any output[2]);
+native void Double_FromFloat(float value, any output[2]);
+
+native float Double_ToFloat(any output[2]);
+native int Double_ToInt(any output[2]);
+native void Double_ToString(any output[2], char[] buffer, int maxlen, int precision = 18);
+
+
+native bool Double_GreaterThan(any left[2], any right[2]);
+native bool Double_LessThan(any left[2], any right[2]);
+native bool Double_EqualTo(any left[2], any right[2]);
+
+native void Double_Absolute(any input[2], any output[2]);
+native void Double_Modulo(any input[2], any denominator[2], any output[2]);
+native void Double_Add(any left[2], any right[2], any output[2]);
+native void Double_Subtract(any left[2], any right[2], any output[2]);
+native void Double_Multiply(any left[2], any right[2], any output[2]);
+native void Double_Divide(any left[2], any right[2], any output[2]);
+native void Double_Pow(any left[2], any right[2], any output[2]);
+native void Double_SquareRoot(any input[2], any output[2]);
+native void Double_Atan(any input[2], any output[2]);
+native void Double_Atan2(any left[2], any right[2], any output[2]);
+native void Double_Sine(any angle[2], any output[2]);
+native void Double_ArcSine(any angle[2], any output[2]);
+native void Double_Tangent(any angle[2], any output[2]);
+native void Double_Cosine(any angle[2], any output[2]);
+native void Double_ArcCosine(any angle[2], any output[2]);
+native bool Double_IsNaN(any output[2]);

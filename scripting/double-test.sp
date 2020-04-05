@@ -3,6 +3,12 @@
 
 public void OnPluginStart()
 {
+	TestHandles();
+	TestArrays();
+}
+
+stock void TestHandles()
+{
 	Double data;
 	char buffer[256];
 
@@ -159,5 +165,120 @@ public void OnPluginStart()
 		PrintToConsoleAll("sqrt: %f %f nan: %f IsNaN: %b", sqrtTen.ToFloat(), fourRootTen.ToFloat(), nan.ToFloat(), nan.IsNaN);
 		PrintToConsoleAll("sqrt: 3.16227766017 1.77827941004 NaN: 0.0 IsNaN: 1");
 	}
+}
 
+stock void TestArrays()
+{
+	any data[2];
+	char buffer[256];
+	// native void Double_FromString(char[] value, any double[2]);
+	{
+		Double_FromString("123456789.12345678", data);
+		Double_ToString(data, buffer, 256, 8);
+		PrintToConsoleAll("got: '%s' expected: '123456789.12345678'", buffer);
+	}
+	// native void Double_FromInt(int value, any double[2]);
+	{
+		Double_FromInt(cellmax, data);
+		Double_ToString(data, buffer, 256, 0);
+		PrintToConsoleAll("got: %s expected: %i", buffer, cellmax);
+	}
+	// native void Double_FromFloat(float value, any double[2]);
+	{
+		Double_FromFloat(50.1234, data);
+		Double_ToString(data, buffer, 256, 4);
+		PrintToConsoleAll("got: %s expected: 50.1234", buffer);
+	}
+
+	// native float Double_ToFloat(any double[2]);
+	{
+
+	}
+	// native int Double_ToInt(any double[2]);
+	{
+
+	}
+	// native void Double_ToString(any double[2], char[] buffer, int maxlen, int precision = 18);
+	{
+
+	}
+
+
+	// native bool Double_GreaterThan(any left[2], any right[2]);
+	{
+
+	}
+	// native bool Double_LessThan(any left[2], any right[2]);
+	{
+
+	}
+	// native bool Double_EqualTo(any left[2], any right[2]);
+	{
+
+	}
+
+	// native void Double_Absolute(any input[2], any output[2]);
+	{
+
+	}
+	// native void Double_Modulo(any input[2], any denominator[2], any output[2]);
+	{
+
+	}
+	// native void Double_Add(any left[2], any right[2], any output[2]);
+	{
+
+	}
+	// native void Double_Subtract(any left[2], any right[2], any output[2]);
+	{
+
+	}
+	// native void Double_Multiply(any left[2], any right[2], any output[2]);
+	{
+
+	}
+	// native void Double_Divide(any left[2], any right[2], any output[2]);
+	{
+
+	}
+	// native void Double_Pow(any left[2], any right[2], any output[2]);
+	{
+
+	}
+	// native void Double_SquareRoot(any input[2], any output[2]);
+	{
+
+	}
+	// native void Double_Atan(any input[2], any output[2]);
+	{
+
+	}
+	// native void Double_Atan2(any left[2], any right[2], any output[2]);
+	{
+
+	}
+	// native void Double_Sine(any angle[2], any output[2]);
+	{
+
+	}
+	// native void Double_ArcSine(any angle[2], any output[2]);
+	{
+
+	}
+	// native void Double_Tangent(any angle[2], any output[2]);
+	{
+
+	}
+	// native void Double_Cosine(any angle[2], any output[2]);
+	{
+
+	}
+	// native void Double_ArcCosine(any angle[2], any output[2]);
+	{
+
+	}
+	// native bool Double_IsNaN(any double[2]);
+	{
+
+	}
 }
