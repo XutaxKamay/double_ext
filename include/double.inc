@@ -1,5 +1,5 @@
 #if defined _double_included
- #endinput
+#endinput
 #endif
 #define _double_included
 
@@ -32,7 +32,7 @@ methodmap Double < Handle
 
 	public native Double SubtractRef(Double right);
 	public static native Double Subtract(Double left, Double right);
-	
+
 	public native Double MultiplyRef(Double right);
 	public static native Double Multiply(Double left, Double right);
 
@@ -47,7 +47,7 @@ methodmap Double < Handle
 
 	public native Double AtanRef();
 	public static native Double Atan(Double right);
-    
+
 	public native Double Atan2Ref(Double right);
 	public static native Double Atan2(Double left, Double right);
 
@@ -67,9 +67,9 @@ methodmap Double < Handle
 	public static native Double ArcCosine(Double angle);
 
 	property bool IsNaN
-    {
-        public native get();
-    }
+	{
+		public native get();
+	}
 }
 
 stock bool operator==(Double left, Double right)
@@ -114,7 +114,6 @@ native void Double_FromFloat(float value, any output[2]);
 native float Double_ToFloat(any output[2]);
 native int Double_ToInt(any output[2]);
 native void Double_ToString(any output[2], char[] buffer, int maxlen, int precision = 18);
-
 
 native bool Double_GreaterThan(any left[2], any right[2]);
 native bool Double_LessThan(any left[2], any right[2]);
